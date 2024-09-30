@@ -1,0 +1,4 @@
+﻿  main.cpp
+C:\Users\santi\OneDrive\Documents\repos\TDA-2c2024\TPs\TP1-Ex2\TP1-Ex2\main.cpp(49,58): warning C4267: 'argumento': conversión de 'size_t' a 'int'; posible pérdida de datos
+C:\Users\santi\OneDrive\Documents\repos\TDA-2c2024\TPs\TP1-Ex2\TP1-Ex2\main.cpp(49,46): warning C4267: 'argumento': conversión de 'size_t' a 'int'; posible pérdida de datos
+  TP1-Ex2.vcxproj -> C:\Users\santi\OneDrive\Documents\repos\TDA-2c2024\TPs\TP1-Ex2\x64\Debug\TP1-Ex2.exe

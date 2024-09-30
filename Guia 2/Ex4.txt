@@ -1,0 +1,80 @@
+1.T (n) = T (n −2) + 5
+2. T (n) = T (n −1) + n
+3. T (n) = T (n −1) + √n
+4. T (n) = T (n −1) + n2
+5. T (n) = 2T (n −1)
+6. T (n) = T (n/2) + n
+7. T (n) = T (n/2) + √n
+8. T (n) = T (n/2) + n2
+9. T (n) = 2T (n −4)
+10. T (n) = 2T (n/2) + log n
+11. T (n) = 3T (n/4)
+12. T (n) = 3T (n/4) + n
+Intentar estimar la complejidad para cada  ́ıtem directamente y luego calcularla utilizando el teorema maestro
+de ser posible. Para simplificar los c ́alculos se puede asumir que n es potencia o m ́ultiplo de 2 o de 4 seg ́un sea
+conveniente.
+
+1.
+T(n) = T(n-2)+5 = T(n-4) + 2*5 = T(n-6) + 3*5
+T(n-2) = t(n-4)+5
+T(n-4) = t(n-6)
+T(n-2*(j-1)) = T(n-2j) + 5
+
+Por paso el crecimiento parece aumentar linealmente, de a 5 y el tama;o de la recursion achica linealmente tambien.
+T(n) = T(n-2j) + 5j siendo j la cantidad de pasos recursivos
+
+Aparenta ser lineal.
+Para este ejemplo no puedo usar teorema maestro
+Asumo que n es multiplo de 2
+T(n) = sum_i=0_j=n/2 5 = 5j = 5*(n/2) = 5/2 * n
+T(n) => Θ(n) lineal
+
+2.
+T(n) = T(n-1) + n = T(n-2) + (n-1) + (n)
+T(n) = sum_i=1_n i  // Suma de gauss
+T(n) = (n(n+1))/2 = n**2/2 + n + 1/2 
+T(n) => Θ(n**2)
+
+3. 
+T (n) = T (n −1) + √n = T(n-2) + √n + √n = T(n-3) = 3*√n = T(n-p) = p*√n 
+para un p 0<p<n
+T(n) = n*√n = n**(3/2) 
+O(n*√n) => subcuadratico
+
+-- ! ESTO LO CALCULE MAL. no tome en cuenta el decrecimiento de √n. Lo de arriba sirve como cota superior, no como justa
+
+T(n) = sum_i=0_n √i 
+
+4.
+T(n) = T (n −1) + n**2
+
+cota superior, dejo solida n**2
+O(n**3)
+
+Cota justa:
+T(n) = sum_i=0_n i**2 = (n(n+1)(2n+1))/2 = Θ(n**3)
+
+5. 
+T (n) = 2T(n −1) = 2*2*T(n-2) = 2^n
+
+No maneja la forma del teorema maestro
+
+6.
+T (n) = T (n/2) + n
+
+a=1, b=2, F(n) = n , log_2 1 = 0
+ n^0 < n => tetha(n) 
+
+7.
+T (n) = T (n/2) + √n = T (n/4) +  √n + √n/2 = sum_i=1_log2n √(n/2^i)
+
+a=1 b=2, F(n) = √n 
+ n^0 < √n => tetha(n)  ! MAL
+
+
+
+8. 
+T (n) = T (n/2) + n^2 = sum_i=1_log2n (n/2^i)
+
+a=1, b=2, F(n) = n^2
+ n^0 < n^2 => tetha(n) ! MAL

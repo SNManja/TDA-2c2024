@@ -1,0 +1,27 @@
+⋆Demostrar que las representaciones por listas de adyacencias de un grafo (ejercicio anterior) se
+pueden construir en O(n+m) tiempo. ¿Qué ocurre si se usa una tabla de hash? ¿Y si se construye
+una matriz de adyacencias?
+
+
+tengo un grafo de n vertices y m aristas.
+Si quiero hacer una lista de adyacencia voy a 
+1. Tener que crear una lista largo n
+2. por cada vertice v en G, ver sus vecinos. Importante ir tomandolos en orden al ir atravezando la lista,
+ si no hay que agregarle el acceso por vertice al costo
+3. tomar la lista de vecinos y ir agregando vecino a vecino al final de la lista
+
+como el maximo de "vecinos" a agregar es la suma de los grados del grafo, vamos a tener
+O(n + suma grados grafo) == O(n + 2m) == O(n + m)
+
+Ahora, si utilizo una tabla de hash, me simplifica los costos generales, tengo acceso en O(1) por ejemplo. 
+Pero no se que tan grande va a ser mi grafo. Entonces pueden haber coliciones.
+El costo de armado sin contar las coliciones es posiblemente el mismo, cambia el costo de operaciones, donde muchas se hacen mas rapido.
+
+Una matriz de adyacencia me va a tomar:
+1. Inicializar una matriz de n*n == O(n^2) en false/0
+2. por cada arista de v1 a v2, acceso a v1 y v2 para colocar true/1 en c/u. O(2m) == O(m)
+Total O(n^2 + m). 
+
+Costo de espacio va a ser mayor tambien, siendo O(n^2) pero me simplifico algunas operaciones como checkear aristas entre 2 vertices
+
+Talvez si el grafo es lo suficientemente chico o las coliciones son infimas, encuentro las mismas ventajas usando diccionarios.

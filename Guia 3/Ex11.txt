@@ -1,0 +1,108 @@
+⋆Discutir (brevemente) las ventajas y desventajas en cuanto a la complejidad temporal y espacial
+de las siguientes implementaciones de un conjunto de vecindarios para un grafo G, de acuerdo a
+las siguientes operaciones:
+
+Nota: Recordar que el conjunto de vecindarios es de la forma (Vector, Vecinos)
+Nota 2: Pueden estar mal algunas respuestas, las hice sin haber repasado bien.
+
+Operaciones: 
+ACLARACION!!! Esto esta copiado y pegado. No todo es tolerado por txt. Asi que ver referencia del pdf
+
+a) Inicializar la estructura a partir de un conjunto de aristas de G.
+
+El costo va a ser, asumiendo que tenemos la cantidad de vertices desde antes.
+1. Crear array de largo n siendo n la cantidad de vectores
+2. Por elemento del conjunto de aristas, agregar dos elementos a las listas de dichos vertices. O(log (m)) en peor caso
+Incluso podria acotarlo directamente por la cantidad de aristas, llamemos m. Eso seria el tama;o del conjunto O(2log m) 
+
+En total aproximadamente seria O(n + 2log(m)) = O(n + log m)
+
+Pros:
+- Fuera de todo pro que tenga una lista de adyacencia, no se me ocurre
+Cons:
+- Podria usar el mismo conjunto de aristas para modelarlo como conjunto de aristas. Seria mas simple? 
+
+b) Determinar si dos vértices v y w son adyacentes.
+
+Asumiendo que lo modele en un array de listas. 
+Me va a costar el acceso al vertice v o w y de ahi hacer busqueda binaria buscando por el otro.
+Asumiendo que puedo checkear largo de lista en O(1) (metodo guardado en la clase que modela la lista)
+Puedo directamente asumir que selecciono esa lista.
+
+Entonces O(1)*2 + O(1) *2 seria el acceso y checkeo de tama;os de cada lista
+y la busqueda en ese caso seria O(log min(matriz[v].size(), matriz[w].size())) 
+En caso que no pueda checkear el tama;o en O(1) O(log max(matriz[v].size(), matriz[w].size())) 
+Si queremos hacer una cota superior mas comoda podemos decir O(log m)
+
+En este analisis supongo de antemano que las listas estan ordenadas, si no seria O(m) la busqueda
+
+Pros:
+- Ninguno, podria ser una matriz de adyacencia
+Cons:
+- Todos, a menos que ya lo tenga modelado, si lo modelo para esto es al pedo. En la matriz seria O(1), aunque ocuparia mayor espacio
+
+c) Recorrer y/o procesar el vecindario N(v) de un vértice v dado.
+
+Para esto si me conviene. El acceso a la lista del vecindario es O(1) asi que solo me quedaria recorrer ese vecindario
+Asi que asumiendo que lo que queremos procesar en el vecindario es de costo K y length(N(v)) = q
+el costo total va a ser O(q * K) 
+
+En cuanto a complejidad espacial la veo optima. Una matriz de adyacencia ocuparia mas. Seria O(n + m)
+
+Pros: 
+- Tengo servidos en bandeja los vecindarios. 
+Cons: 
+- No los veo
+
+
+d) Insertar un vértice v con su conjunto de vecinos N(v).
+
+En este caso lo optimo seria justo tenerlo modelado como una lista de vecindarios ordenados,
+Teniendo conjunto de vecinos N(v) como otra lista, llamemosla vecinos
+Voy a:
+1. Busco por busqueda binaria la posicion de n O(log n)
+2. A;ado el vertice v con su lista vecinos O(1). Asumiendo que no tengo que hacer una copia de la misma
+3. Ahora paso por la lista vecinos, accediendo en cada uno y colocando a v en cada una de las listas. O(vecinos * log(m) * log(vecinos del vecino))
+Voy a acotar por encima este ultimo O(vecinos * log(m)^2)
+O(log n + vecinos * log(m)^2) 
+
+Pros:
+- En la estructura que arme, me es comodo para este caso que estoy agregando un vertice. 
+
+Cons:
+- Si el grafo no suele cambiar y no es una accion que haga seguido, va a ser poco eficiente el acceso a la informacion
+dado a que son listas.
+- Incluso creo poder mejorar la complejidad haciendo que sea un array como primera dimension. 
+Agregaria mayor carga en tener que rehacer el array de 0 pero simplifica el acceso. Dependiendo del caso, esto otro podria ser optimo
+
+e) Insertar una arista vw.
+En este caso, voy a tener que acceder a v, agregar el vecino w y viceversa.
+Asumiendo que tengo un array de listas ordenadas. Es 2 * O(1) * O(log(m)) = O(log m)
+
+Pros:
+- Ninguno en especifico
+Cons:
+- Con una matriz de adyacencia seria O(1)
+
+f ) Remover un vértice v con todas sus adyacencias.
+
+El eliminar el vertice es simple en un principio. Pero el problema esta en tener que pasar por cada uno de sus vecinos y eliminarlo
+Puedo hacer una cota bruta y decir O(vecinos * log(m)). 
+Asumiendo que es una lista de listas ordenadas es O(log n + vecinos * log (m))
+
+Pros:
+- Es un tramite, pero al final es la estructura mas comoda para esto, en una matriz de adyacencia tendria que rearmarla
+o dejar un espacio hueco, cosa que a largo plazo puede ocupar mucha memoria innecesariamente
+Cons:
+- Ninguno a primera vista, es el mejor caso para esta operacion. Incluso en terminos de espacio.
+
+g) Remover una arista vw.
+
+Igual a insertar una arista. (o muy similar)
+
+h) Mantener un orden de N(v) de acuerdo a algún invariante que permita recorrer cada
+vecindario en un orden dado.
+
+En caso que tenga que armar la estructura de 0 seguro me cueste mas la insercion, teniendo que ser logaritmica envez de
+que sea O(1), asi mantengo todo ordenado y recorrer en ese orden es mas simple.
+

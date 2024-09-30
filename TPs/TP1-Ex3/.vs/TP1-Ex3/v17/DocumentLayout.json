@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\santi\\OneDrive\\Documents\\repos\\TDA-2c2024\\TPs\\TP1-Ex3\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{003ED2C8-EEF7-4A88-8C3D-D26A02D771EE}|TP1-Ex3\\TP1-Ex3.vcxproj|C:\\Users\\santi\\OneDrive\\Documents\\repos\\TDA-2c2024\\TPs\\TP1-Ex3\\TP1-Ex3\\TP1-Ex3.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}",
+      "RelativeMoniker": "D:0:0:{003ED2C8-EEF7-4A88-8C3D-D26A02D771EE}|TP1-Ex3\\TP1-Ex3.vcxproj|solutionrelative:TP1-Ex3\\TP1-Ex3.cpp||{D0E1A5C6-B359-4E41-9B60-3365922C2A22}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "TP1-Ex3.cpp",
+              "DocumentMoniker": "C:\\Users\\santi\\OneDrive\\Documents\\repos\\TDA-2c2024\\TPs\\TP1-Ex3\\TP1-Ex3\\TP1-Ex3.cpp",
+              "RelativeDocumentMoniker": "TP1-Ex3\\TP1-Ex3.cpp",
+              "ToolTip": "C:\\Users\\santi\\OneDrive\\Documents\\repos\\TDA-2c2024\\TPs\\TP1-Ex3\\TP1-Ex3\\TP1-Ex3.cpp",
+              "RelativeToolTip": "TP1-Ex3\\TP1-Ex3.cpp",
+              "ViewState": "AQIAABQAAAAAAAAAAAAIwC4AAAABAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000677|",
+              "WhenOpened": "2024-09-17T17:52:14.641Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

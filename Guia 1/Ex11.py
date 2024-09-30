@@ -19,8 +19,8 @@ def OperacionesSeq(v,w):
             return False
         if(i == len(v) and val != w):
             return False
-        if(val == w):
-            return i == len(v)
+        if(i == len(v)):
+            return val == w
         if(resuelve[i][val]):
             return False
         else:
